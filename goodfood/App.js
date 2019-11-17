@@ -17,10 +17,3 @@ const navigator = createStackNavigator(
 );
 
 export default createAppContainer(navigator);
-
-// Yelp
-// Client ID
-// TqwwNGPiZoSADNnl0L_4IQ
-
-// API Key
-// TLNAFL933UEj4GpZIoqAXpAIlByqSLuPSYcCgaDLUfTBrKyewNESRHwh8iQUvsXWpolSK7adS_LKTGKtjv - QybiZl7oj8n3a - pVa0SwgXtd9Aoa2i0RHqIst0qjRXXYx
