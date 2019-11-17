@@ -24,7 +24,7 @@ export default () => {
 
   // Default search when component load
   useEffect(() => {
-    searchAPI("thai");
+    searchAPI("pasta");
   }, []);
 
   return [searchAPI, results, errMsg];

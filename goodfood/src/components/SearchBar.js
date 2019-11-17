@@ -22,9 +22,10 @@ const SearchBar = ({ searchText, onSearchTextChange, onSearchTextSubmit }) => {
 const styles = StyleSheet.create({
   searchBarView: {
     backgroundColor: "#F0EEEE",
-    margin: 10,
     height: 40,
     borderRadius: 5,
+    marginTop: 10,
+    marginHorizontal: 10,
     flexDirection: "row"
   },
   inputStyle: {
