@@ -6,9 +6,14 @@ import {
   FlatList,
   TouchableOpacity
 } from "react-native";
+import { withNavigation } from "react-navigation";
 import BusinessDetail from "./BusinessDetails";
 
 const HomeResultsList = ({ title, businessList, navigation }) => {
+  if (!businessList.length) {
+    return null;
+  }
+
   return (
     <View style={styles.viewStyle}>
       <Text style={styles.titleStyle}>{title}</Text>
@@ -20,7 +25,9 @@ const HomeResultsList = ({ title, businessList, navigation }) => {
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
-              onPress={() => navigation.navigate("BusinessScreen")}
+              onPress={() =>
+                navigation.navigate("BusinessScreen", { id: item.id })
+              }
             >
               <BusinessDetail business={item} />
             </TouchableOpacity>
@@ -42,4 +49,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default HomeResultsList;
+export default withNavigation(HomeResultsList);

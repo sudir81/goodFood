@@ -4,7 +4,7 @@ import SearchBar from "./../components/SearchBar";
 import useBusinessResults from "./../hooks/useBusinessResults";
 import HomeResultsList from "./../components/HomeResultsList";
 
-const SearchScreen = ({ navigation }) => {
+const SearchScreen = () => {
   const [searchText, setSearchText] = useState("");
   const [searchAPI, results, errMsg] = useBusinessResults();
 
@@ -26,17 +26,14 @@ const SearchScreen = ({ navigation }) => {
         <HomeResultsList
           title="Fruitful"
           businessList={filterBusinessesByPrice("$")}
-          navigation={navigation}
         />
         <HomeResultsList
           title="Economic"
           businessList={filterBusinessesByPrice("$$")}
-          navigation={navigation}
         />
         <HomeResultsList
           title="Spender"
           businessList={filterBusinessesByPrice("$$$")}
-          navigation={navigation}
         />
       </ScrollView>
     </>
