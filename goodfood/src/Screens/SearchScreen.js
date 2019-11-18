@@ -4,7 +4,7 @@ import SearchBar from "./../components/SearchBar";
 import useBusinessResults from "./../hooks/useBusinessResults";
 import HomeResultsList from "./../components/HomeResultsList";
 
-const SearchScreen = () => {
+const SearchScreen = ({ navigation }) => {
   const [searchText, setSearchText] = useState("");
   const [searchAPI, results, errMsg] = useBusinessResults();
 
@@ -15,31 +15,31 @@ const SearchScreen = () => {
   };
 
   return (
-    <View style={styles.searchView}>
+    <>
       {errMsg ? <Text style={styles.errMsg}>{errMsg}</Text> : null}
       <SearchBar
         searchText={searchText}
         onSearchTextChange={newSearchText => setSearchText(newSearchText)}
         onSearchTextSubmit={() => searchAPI(searchText)}
       />
-      <Text style={{ marginHorizontal: 10 }}>
-        Found {results.length} restaurants.
-      </Text>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <HomeResultsList
           title="Fruitful"
           businessList={filterBusinessesByPrice("$")}
+          navigation={navigation}
         />
         <HomeResultsList
           title="Economic"
           businessList={filterBusinessesByPrice("$$")}
+          navigation={navigation}
         />
         <HomeResultsList
           title="Spender"
           businessList={filterBusinessesByPrice("$$$")}
+          navigation={navigation}
         />
       </ScrollView>
-    </View>
+    </>
   );
 };
 
